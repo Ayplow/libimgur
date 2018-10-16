@@ -1,0 +1,65 @@
+{
+  "name": "libimgur",
+  "version": "0.0.2",
+  "description": "A fully typed javascript library for the Imgur API",
+  "main": "lib/index.js",
+  "author": {
+    "name": "Tom Sputz",
+    "email": "tomsputz@outlook.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "npm run build && nyc ava",
+    "build": "npm run format && tsc",
+    "format": "eslint ./src/**/* --fix",
+    "prepare": "npm run test",
+    "preversion": "npm run test",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  },
+  "keywords": [
+    "imgur",
+    "image",
+    "api",
+    "typescript",
+    "ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TomSputz/libimgur.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TomSputz/libimgur/issues"
+  },
+  "homepage": "https://github.com/TomSputz/libimgur#readme",
+  "files": [
+    "/lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@types/node": "^10.12.0",
+    "ava": "1.0.0-beta.8",
+    "codecov": "^3.1.0",
+    "eslint": "^5.7.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-config-typescript": "^1.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-typescript": "^0.12.0",
+    "nyc": "^13.1.0",
+    "prettier": "^1.14.3",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.3",
+    "typescript-eslint-parser": "^20.0.0"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
